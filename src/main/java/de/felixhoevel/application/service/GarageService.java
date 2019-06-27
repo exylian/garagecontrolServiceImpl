@@ -1,13 +1,19 @@
 package de.felixhoevel.application.service;
 
 import de.felixhoevel.application.domain.Garage;
+import de.felixhoevel.application.domain.GarageCode;
+import de.felixhoevel.application.repository.GarageCodeRepository;
 import de.felixhoevel.application.repository.GarageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +27,9 @@ public class GarageService {
     private final Logger log = LoggerFactory.getLogger(GarageService.class);
 
     private final GarageRepository garageRepository;
+
+    @Autowired
+    private GarageCodeRepository garageCodeRepository;
 
     public GarageService(GarageRepository garageRepository) {
         this.garageRepository = garageRepository;
@@ -69,5 +78,21 @@ public class GarageService {
     public void delete(Long id) {
         log.debug("Request to delete Garage : {}", id);
         garageRepository.deleteById(id);
+    }
+
+    /**
+     *
+     * Check a Garage if there ist at least one ayctive code
+     *
+     * @param id of the Garage
+     * @return boolean
+     */
+    public boolean garageActiveQuery(Long id){
+        log.debug("Request to check if the Garage got one or more active Codes");
+        Garage garage = garageRepository.getOne(id);
+       
+        GarageCode garageCode = garageCodeRepository.findGarageCodeByGarageIdAndValidUntilIsAfter(garage, LocalDate.now().minusDays(1));
+        if (garageCode != null){return true;}
+        return false;
     }
 }

@@ -10,6 +10,7 @@ import { IGarageCode, GarageCode } from 'app/shared/model/garage-code.model';
 import { GarageCodeService } from './garage-code.service';
 import { IGarage } from 'app/shared/model/garage.model';
 import { GarageService } from 'app/entities/garage';
+import { NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-garage-code-update',
@@ -36,7 +37,8 @@ export class GarageCodeUpdateComponent implements OnInit {
     protected garageCodeService: GarageCodeService,
     protected garageService: GarageService,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private calendar: NgbCalendar
   ) {}
 
   ngOnInit() {
@@ -51,6 +53,14 @@ export class GarageCodeUpdateComponent implements OnInit {
         map((response: HttpResponse<IGarage[]>) => response.body)
       )
       .subscribe((res: IGarage[]) => (this.garages = res), (res: HttpErrorResponse) => this.onError(res.message));
+  }
+
+  selectToday() {
+    /*this.editForm.patchValue({
+      createdAt: this.calendar.getToday()
+      })*/
+    //this.editForm.get(['createdAt']).setValue(this.calendar.getToday())
+    this.createdAtDp = this.calendar.getToday();
   }
 
   updateForm(garageCode: IGarageCode) {

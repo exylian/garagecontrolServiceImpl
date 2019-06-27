@@ -114,4 +114,10 @@ public class GarageResource {
         garageService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
+
+    @GetMapping("/garages/active/{id}")
+    public boolean checkForActiveCode(@PathVariable Long id){
+        log.debug("Rest request to check for active Code : {}", id);
+        return garageService.garageActiveQuery(id);
+    }
 }

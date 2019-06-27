@@ -25,6 +25,7 @@
                         <input id="field_createdAt" type="text" class="form-control" name="createdAt" ngbDatepicker  #createdAtDp="ngbDatepicker" formControlName="createdAt"/>
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="createdAtDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            <button type="button" class="btn btn-primary" (click)="selectToday()">Select Today</button>
                         </span>
                     </div>
                 </div>
