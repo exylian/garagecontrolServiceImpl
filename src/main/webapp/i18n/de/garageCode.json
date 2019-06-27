@@ -1,0 +1,26 @@
+{
+  "garagecontrolServiceImplApp": {
+    "garageCode": {
+      "home": {
+        "title": "Garage Codes",
+        "createLabel": "Garage Code erstellen",
+        "createOrEditLabel": "Garage Code erstellen oder bearbeiten",
+        "notFound": "No Garage Code found"
+      },
+      "created": "Garage Code erstellt mit ID {{ param }}",
+      "updated": "Garage Code aktualisiert mit ID {{ param }}",
+      "deleted": "Garage Code gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Garage Code {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Garage Code"
+      },
+      "code": "Code",
+      "customer": "Customer",
+      "createdAt": "Created At",
+      "validUntil": "Valid Until",
+      "garageId": "Garage Id"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "garagecontrolServiceImplApp": {
+    "garage": {
+      "home": {
+        "title": "Garages",
+        "createLabel": "Garage erstellen",
+        "createOrEditLabel": "Garage erstellen oder bearbeiten",
+        "notFound": "No Garage found"
+      },
+      "created": "Garage erstellt mit ID {{ param }}",
+      "updated": "Garage aktualisiert mit ID {{ param }}",
+      "deleted": "Garage gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Garage {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Garage"
+      },
+      "description": "Description"
+    }
+  }
+}
