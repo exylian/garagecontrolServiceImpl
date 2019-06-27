@@ -1,0 +1,20 @@
+entity Garage {
+	id Integer,
+    description String
+}
+
+entity GarageCode {
+	id Integer,
+    code Integer,
+    customer String,
+    createdAt LocalDate,
+    validUntil LocalDate
+}
+
+relationship ManyToOne {
+ GarageCode{garageId} to Garage
+}
+
+service Garage with serviceClass
+service GarageCode with serviceClass
+

@@ -45,6 +45,8 @@ public class CacheConfiguration {
             createCache(cm, de.felixhoevel.application.domain.User.class.getName() + ".authorities");
             createCache(cm, de.felixhoevel.application.domain.PersistentToken.class.getName());
             createCache(cm, de.felixhoevel.application.domain.User.class.getName() + ".persistentTokens");
+            createCache(cm, de.felixhoevel.application.domain.Garage.class.getName());
+            createCache(cm, de.felixhoevel.application.domain.GarageCode.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
